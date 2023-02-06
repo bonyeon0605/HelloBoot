@@ -1,0 +1,2 @@
+#sample Test
+GET {{host}}/?name=bonyeon
