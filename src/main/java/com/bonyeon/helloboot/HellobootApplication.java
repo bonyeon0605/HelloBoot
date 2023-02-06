@@ -40,8 +40,6 @@ public class HellobootApplication {
 
                 }
             }).addMapping("/*");
-
-
         });
         webServer.start();
 
