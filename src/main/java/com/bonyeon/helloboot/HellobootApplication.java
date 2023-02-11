@@ -1,5 +1,6 @@
 package com.bonyeon.helloboot;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServer;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
@@ -24,21 +25,6 @@ public class HellobootApplication {
     }
 
     public static void main(String[] args) {
-        AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext() {
-            @Override
-            protected void onRefresh() {
-                super.onRefresh();
-                ServletWebServerFactory webServerFactory = this.getBean(ServletWebServerFactory.class);
-                DispatcherServlet dispatcherServlet = this.getBean(DispatcherServlet.class);
-
-                WebServer webServer = webServerFactory.getWebServer(servletContext -> {
-                    servletContext.addServlet("dispatcherServlet", dispatcherServlet)
-                            .addMapping("/*");
-                });
-                webServer.start();
-            }
-        };
-        applicationContext.register(HellobootApplication.class); // 빈 등록
-        applicationContext.refresh(); // 초기화 작업
+        SpringApplication.run(HellobootApplication.class ,args);
     }
 }
