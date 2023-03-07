@@ -1,8 +1,9 @@
 package com.bonyeon.helloboot;
 
+import com.bonyeon.config.MySpringBootApplication;
 import org.springframework.boot.SpringApplication;
 
-@MySpringBootAnnotation
+@MySpringBootApplication
 public class HellobootApplication {
 
     public static void main(String[] args) {
