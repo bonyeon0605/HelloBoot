@@ -7,7 +7,6 @@ import org.springframework.core.type.AnnotationMetadata;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.StreamSupport;
 
 @RequiredArgsConstructor
 public class MyAutoConfigImportSelector implements DeferredImportSelector {
@@ -19,7 +18,10 @@ public class MyAutoConfigImportSelector implements DeferredImportSelector {
 
         List<String> autoConfigs = new ArrayList<>();
 
-        ImportCandidates.load(MyAutoConfiguration.class, classLoader).forEach(autoConfigs::add);
+        ImportCandidates.load(MyAutoConfiguration.class, classLoader).forEach(candidate -> {
+            System.out.println(" ***** : " + candidate);
+            autoConfigs.add(candidate);
+        });
 
         return autoConfigs.toArray(new String[0]);
     }
