@@ -1,3 +1,4 @@
+com.bonyeon.config.autoconfig.PropertyPlaceholderConfig
 com.bonyeon.config.autoconfig.DispatcherServletConfig
 com.bonyeon.config.autoconfig.TomcatWebServerConfig
 com.bonyeon.config.autoconfig.JettyWebServerConfig
